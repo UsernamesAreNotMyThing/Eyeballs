@@ -1,28 +1,37 @@
+:root {
+	--keyColor: #444;
+}
+/* Background */
 body {
 	margin: 0;
 	padding: 0;
 	background: #14495e;
 	pointer-events: none;
-  }
-  
-  .eyes {
+}
+/* Deprecated */
+.eyes {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 	width: 240px/*100%*/;
 	text-align: center;
-  }
-  .eye {
+	border-radius: 50%;
+	background-color: black;
+}
+.eye {
 	width: 240px;
 	height: 120px;
 	background: #fff;
 	display: inline-block;
+	transform-origin: center;
 	/*margin: 40px;*/
 	border-radius: 50%;
 	position: relative;
-	overflow: hidden;
-  }
-  .ball {
+	mask-type: alpha;
+	/*overflow: hidden;*/
+}
+/* The pupil */
+.ball {
 	width: 80px;
 	height: 80px;
 	background: #000;
@@ -31,4 +40,34 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	border-radius: 50%;
-  }  
+	pointer-events: none;
+}
+div#empty-message {
+	position: absolute;
+	color: white;
+	font-family: 'Century Gothic', 'Sans-Serif';
+	font-weight: lighter;
+	text-align: center;
+	width: 100%;
+	height: 25%;
+	top: 37.5%;
+	pointer-events: none;
+	text-shadow: #000;
+	vertical-align: middle;
+	user-select: none;
+}
+/* Used to indicate keys to press */
+div.key {
+	border: 2px solid black;
+	background-color: var(--keyColor);
+	width: 2em;
+	height: 2em;
+	display: inline-block;
+	box-sizing: border-box;
+	text-align: center;
+	padding: .25em;
+	font-family: 'Arial', 'sans-serif';
+}
+div.key+p {
+	display: inline;
+}
